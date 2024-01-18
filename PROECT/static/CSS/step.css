@@ -1,0 +1,37 @@
+.all_buy_step{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 72px;
+}
+.card_buy{
+    display: flex;
+    padding-bottom: 72px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #CCC;
+}
+.card_buy p{
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 90% */
+}
+.card_buy img{
+    margin-top: 30px;
+    width: 1361px;
+    height: 356px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+    justify-content: flex-end;
+    align-items: center;
+}

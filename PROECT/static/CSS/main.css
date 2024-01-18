@@ -1,0 +1,219 @@
+.head{
+    width: 100%;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    margin-bottom: 20px;
+    background: #292929;
+    border-radius: 10px;
+}
+.text-head{
+    position: absolute;
+    width: 93px;
+    height: 18px;
+    left: 40px;
+    top: 31px;
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.main_body{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+img{
+    width: 222px;
+    height: 172px;
+    flex-shrink: 0;
+}
+.menu{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: fixed;
+    top: 100px; 
+    left: 50px;
+}
+.menu img{
+    width: 64px;
+    height: 64px;
+    background: #ffffff;   
+}
+.menu_card{
+    display: flex;
+    width: 152px;
+    padding: 24px 16px 20px 16px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    border-radius: 16px;
+    background: #FFF;
+    box-shadow: 0px 0px 28px 0px rgba(38, 55, 16, 0.16);
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;  
+}
+.active-section {
+    background: #85C139; 
+    transition: background-color 1s #85C139, color 1s 1s linear;
+    color: #FFF;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px; 
+}
+.all_card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+}
+h2{
+    color: #000;
+    font-family: Helvetica;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 90% */
+    margin-top: 50px;
+}
+.card{
+/* Frame 3 */
+box-sizing: border-box;
+width: 262px;
+height: 400px;
+background: #FFFFFF;
+border: 1px solid #DDDDDD;
+box-shadow: 0px 0px 28px rgba(38, 55, 16, 0.08);
+border-radius: 16px;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.card p{
+    /* text */
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; 
+    margin: 20px;
+}
+.row_card{
+
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 20px;
+width: 1108px;
+height: 340px;
+flex: none;
+order: 1;
+flex-grow: 0;
+
+}
+.card button{
+    display: inline-flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #85C139;
+    border: none;
+}
+.card button svg{
+    width: 30px;
+    height: 30px;
+    stroke-width: 3px;
+    stroke: #FFF;
+}
+.order_menu{
+    display: flex;
+    width: 1108px;
+    padding: 28px 40px;
+    height: 80px;
+    justify-content:space-around;
+    align-items: center;
+    border-radius: 12px;
+    background: #292929;
+    box-shadow: 0px 0px 28px 0px rgba(38, 55, 16, 0.48);
+    position: fixed;
+    top:90%;
+}
+.order_menu p{
+    color: #FFF;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+}
+.order_menu b{
+    color: #FFF;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+}
+.order_menu button{
+    background: #292929;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    box-shadow: none;
+    border: none;
+}
+.order_menu button svg{
+    stroke-width: 3px;
+    stroke: #FFF;
+}
+.main_dish{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.footer {
+    background-color: #FFFFFF;
+    height: 200px;
+}
+.plus{
+    width: 43px;
+    height: 43px;
+}

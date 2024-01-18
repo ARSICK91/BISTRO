@@ -1,0 +1,205 @@
+.back{
+    position: absolute;
+    left: 2%;
+    top: 10%;
+}
+.back form button{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+    gap: 24px;
+    background: #FFF;
+    border: none;
+}
+.back form button svg{
+    stroke-width: 3px;
+    stroke: #000;
+}
+.back form button p{
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 83.333% */
+}
+.dish{
+    display: flex;
+    width: 1108px;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+.dish img{
+    width: 396px;
+    height: 290px;
+    flex-shrink: 0;
+}
+.dish .character{
+    display: flex;
+    flex-direction: column;
+    width: 1108px;
+    gap: 10px;
+}
+.dish .character h2{
+    color: #000;
+    font-family: Helvetica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 114.286% */
+}
+.dish .character b{
+    color: #7D7D7D;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+}
+.rows{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.edit_product{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.edit_product .product{
+    display: flex;
+    width: 1108px;
+    padding: 16px 24px 16px 40px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    border-radius: 12px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    box-shadow: 0px 0px 28px 0px rgba(38, 55, 16, 0.08);
+}
+.product p{
+    color: #000;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+    width: 100%;
+}
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+}
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+    background: #CECECE;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+.custom-checkbox:checked+label::before {
+    border-color: none;
+    background: #85C139;
+    border-radius: 100px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+.number {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #FFF;
+
+    
+}
+.number input[type="number"] {
+    border: none;
+    color: #000;
+    font-family: Helvetica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 114.286% */
+    width: 20px
+}
+.number input[type="number"]::-webkit-outer-spin-button,
+.number input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+.number-minus {
+	display: flex;
+    padding: 22px 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #85C139;
+    border: none;
+}
+.number-plus {
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #85C139;
+    border:none;
+}
+.amount_dish{
+    display: flex;
+    flex-direction: row;
+    margin: 24px;
+    gap:32px;
+    justify-content: flex-end;
+}
+.add_dish_by_order{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-radius: 12px;
+    background: #85C139;
+    border: none;
+}
+.add_dish_by_order p{
+    color: #FFF;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+}
+.add_dish_by_order svg{
+    stroke-width: 4px;
+    stroke: #FFF;
+}
+
+

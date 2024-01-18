@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>  
+<html> 
+<head>
+    <title> Bistro </title> 
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/edit_dish.css" /> 
+    <link rel="stylesheet" type="text/css" href="/static/css/order.css" >
+</head>
+<body>
+    <div class = 'column'>
+        <div class  = 'head'> 
+            <div class = 'text-head'>Bistro</div> 
+        </div>
+        <div class ='rows'>
+            <div class = 'back'>
+                <form action='{{url_for('index')}}' method = 'get'>
+                    <button type = 'submit' value = 'go_to_index'>
+                        <input name = 'back_to_index' type = 'number' value = '1' hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24" fill="none">
+                            <path d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.93934 10.9393ZM46 13.5C46.8284 13.5 47.5 12.8284 47.5 12C47.5 11.1716 46.8284 10.5 46 10.5V13.5ZM2 13.5L46 13.5V10.5L2 10.5L2 13.5Z" fill="black"/>
+                        </svg>
+                        <p>Назад</p>
+                    </button>
+                </form>
+            </div>
+            <div class = 'column'>
+            <div class ='number_and_price'>
+                 <p>Заказ № {{buy_id}}</p>
+                 <p>Итого: {% if df_price.loc[0, 'total_price'] is none %} 0 р {% else %} {{ df_price.loc[0, 'total_price'] }} р {% endif %}</p>
+            </div>
+            <div class = 'dishes'>
+                {% set n = df_dish_dis|length %}
+                {% set k = df_order_dishes|length %}
+                {% for i in range(n) %}
+                    {% set id = df_dish_dis.loc[i,'id_buy_dish'] %}
+                    <form action='{{url_for('order')}}' method = 'get'>
+                        <div class = 'card_dish'>
+                            <input value = {{df_dish_dis.loc[i,'id_buy_dish']}} name = 'delete' hidden>
+                            <div class = 'incard'>
+                                <img src = {{df_dish_dis.loc[i,'image']}}>
+                                <div class = 'all_dish_text'>
+                                    <p>{{df_dish_dis.loc[i,'name_dish']}}</p>
+                                    {% for i in range(k) %}
+                                        {% if df_order_dishes.loc[i,'id_buy_dish'] == id %}
+                                            <b>{{df_order_dishes.loc[i,'name_product']}}</b>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class = 'result'>
+                                <button type = 'submit' value={{id_buy}}>
+                                    <b>Удалить</b>
+                                </button>
+                                <p>Количество: {{df_dish_dis.loc[i,'amount']}}</p>
+                                <p>Цена: {{df_dish_dis.loc[i,'price']}}</p>
+                            </div>
+                        </div>
+                    </form>
+                {% endfor %}
+                </div>
+                <div class = 'order_menu' id = '1'>
+                    <form action = '{{url_for('step')}}' method = 'post'>
+                        <input value = {{buy_id}} name = 'add_step' hidden>
+                        <button type="submit" value={{id_buy}} name="go_to_order" 
+                        {% if df_dish_dis|length == 0 %} disabled {% endif %}>
+                            <p>Заказать</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="footer">
+</footer>
+</html>

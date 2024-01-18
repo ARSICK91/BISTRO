@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>  
+<html> 
+    <head>    
+    <script>
+window.addEventListener('scroll', function() {
+    let sections = document.querySelectorAll(".menu_card");
+    sections.forEach(section => {
+        let sectionTop = section.offsetTop;
+        let sectionHeight = section.clientHeight;
+        let scrollPosition = window.scrollY;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            sections.forEach(sec => {
+                sec.classList.remove('active-section');
+            });
+            section.classList.add('active-section');
+        }
+    });
+});
+    </script>
+        <title> Bistro </title> 
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/edit_dish.css" /> 
+        <link rel="stylesheet" type="text/css" href="/static/css/order.css" >
+        <link rel="stylesheet" type="text/css" href="/static/css/step.css" >
+
+        {% macro render_card(type_name, all_dish) %}  
+            <div class = 'column'>        
+            <h2 id = {{type_name}}>{{type_name}}</h2>
+            {% set n = all_dish|length %}
+                <div class = 'row_card'>
+                    {% for i in range(n) %}
+                            {% if all_dish.loc[i, 'type'] == type_name %}
+                            <div class="card">
+                                <img src={{ all_dish.loc[i, 'image'] }}>
+                                <p>{{ all_dish.loc[i, 'name_dish'] }}</p> 
+                                <div class = 'column'>    
+                                    <p>Цена: {{ all_dish.loc[i, 'total_price'] }} Руб.</p> 
+                                    <div class = 'row'>
+                                        <p>Масса: {{ all_dish.loc[i, 'total_calories'] }} Г</p>
+                                        <form action='{{url_for("edit_dish")}}' method ="post">
+                                            <button type="submit" value='{{all_dish.loc[i, 'id_dish']}}'
+                                                    name="dish" class = 'plus' title="Добавить блюдо">
+                                                    <svg width="20" height="20" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M22 12L22 32M32 22L12 22" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                                                    </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>                                
+                                
+                            </div>
+                            {%endif%}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endmacro %}       
+             
+        {%macro render_menu_card(id,img,text)%}
+        <div class = 'menu_card'>
+            <img src ={{img}}>
+            <p>{{text}}</p>
+        </div>  
+        {% endmacro %}
+    </head> 
+    <body>
+    <div class = 'column'>
+        <div class  = 'head'> 
+            <div class = 'text-head'>Bistro</div> 
+        </div>
+        <div class = 'buttons'>
+            <form action = '{{url_for('step')}}' method = 'post'>
+                <button type = 'submit' class = 'add_dish_by_order'>
+                    <p>
+                        Заказы
+                    </p>
+                </button>
+            </form>
+        </div>
+        <div class = 'main_body'>
+            <div class = 'menu'>
+                {{render_menu_card("#Бургер","\static\images\surger.png",'Бургеры')}}
+                {{render_menu_card("#Салат","\static\images\salat.png",'Салаты')}}
+                {{render_menu_card("#Пицца","\static\images\pizza.png",'Пиццы')}}
+                {{render_menu_card("#Суп","\static\images\samen.png",'Супы')}}
+            </div>    
+            <div class = 'all_card'>
+                {{render_card('Бургер',all_dish)}}
+                {{render_card('Салат',all_dish)}}
+                {{render_card('Пицца',all_dish)}}
+                {{render_card('Суп',all_dish)}}
+                <div class = 'order_menu' id = '1'>
+                    <b>Позиций в заказе: {{count_dish.loc[0,'dish_count']}}</b>
+                    <form action = '{{url_for('order')}}' method = 'post'>
+                        <button type="submit" value={{id_buy}} name="go_to_order">
+                            <p>К заказу</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24" fill="none">
+                                <path d="M2 10.5C1.17157 10.5 0.5 11.1716 0.5 12C0.5 12.8284 1.17157 13.5 2 13.5L2 10.5ZM47.0607 13.0607C47.6464 12.4749 47.6464 11.5251 47.0607 10.9393L37.5147 1.3934C36.9289 0.807611 35.9792 0.807611 35.3934 1.3934C34.8076 1.97919 34.8076 2.92893 35.3934 3.51472L43.8787 12L35.3934 20.4853C34.8076 21.0711 34.8076 22.0208 35.3934 22.6066C35.9792 23.1924 36.9289 23.1924 37.5147 22.6066L47.0607 13.0607ZM2 13.5L46 13.5V10.5L2 10.5L2 13.5Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </div>  
+    </body> 
+    <footer class="footer">
+    </footer>
+</html>

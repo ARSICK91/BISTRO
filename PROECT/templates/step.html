@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>  
+<html>
+    <head>
+        <title> Bistro </title> 
+        <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/static/css/edit_dish.css" /> 
+        <link rel="stylesheet" type="text/css" href="/static/css/order.css" >
+        <link rel="stylesheet" type="text/css" href="/static/css/step.css" >
+    </head>
+    <body>
+        <div class = 'column'>
+            <div class  = 'head'> 
+                <div class = 'text-head'>Bistro</div> 
+            </div>
+            <div class = 'back' {% if new_order == True %} hidden {%endif%}>
+                <form action='{{url_for('index')}}' method = 'get'>
+                    <button type = 'submit' value = 'go_to_index'>
+                        <input name = 'back_to_index' type = 'number' value = '1' hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24" fill="none">
+                            <path d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807611 11.0711 0.807611 10.4853 1.3934L0.93934 10.9393ZM46 13.5C46.8284 13.5 47.5 12.8284 47.5 12C47.5 11.1716 46.8284 10.5 46 10.5V13.5ZM2 13.5L46 13.5V10.5L2 10.5L2 13.5Z" fill="black"/>
+                        </svg>
+                        <p>Меню</p>
+                    </button>
+                </form>
+            </div>
+            <div class = 'buttons'>
+                <form action = '{{url_for('step')}}' method = 'post'>
+                    <button type = 'submit' class = 'add_dish_by_order'>
+                        <p>
+                            Проверить состояние заказа
+                        </p>
+                    </button>
+                </form>
+                <form action = '{{url_for('index')}}' method = 'post'>
+                    <button type = 'submit' class = 'add_dish_by_order'>
+                        <input name = 'add_new_order' hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L12 22M22 12L2 12" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                        </svg>
+                        <p>
+                            Добавить заказ
+                        </p>
+                    </button>
+                </form>
+            </div>
+            <div class = 'all_buy_step'>
+                {% set n = df_buy_step|length %}
+                    {%for i in range(n)%}
+                        <div class = 'card_buy'>
+                            <p>Статус заказа</p>
+                            <p>№ {{df_buy_step.loc[i,'id_buy']}}</p>
+                            <img src = '{{df_buy_step.loc[i,'step_image']}}'>
+                        </div>
+                    {%endfor%}
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+.number_and_price{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; 
+    align-items: center;  
+    gap:500px; 
+}
+.number_and_price p{
+    color: #000;
+    text-align: right;
+    font-family: Helvetica;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 100% */
+}
+.dishes{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+.dishes{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    justify-content: center;
+    width: 100%;
+}
+.card_dish{
+    display: flex;
+    width: 1108px;
+    padding: 24px 36px 36px 36px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    border-radius: 16px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    box-shadow: 0px 0px 28px 0px rgba(38, 55, 16, 0.08);
+}
+.incard{
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    align-self: stretch;
+}
+.price_card{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+.price_card p{
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 114.286% */
+}
+.all_dish_text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+}
+.all_dish_text p{
+    color: #000;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+}
+.all_dish_text b{
+    color: #000;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 120% */
+}
+.result{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+.result p{
+    color: #000;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 114.286% */
+}
+.result button{
+    height: 80%;
+    width: 15%;
+    border:lightcoral;
+    border-radius: 8px; 
+    background:lightcoral ;
+}
+.result button b{
+    color: #FFF;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 100% */
+}
+button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
